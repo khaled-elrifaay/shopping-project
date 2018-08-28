@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Categories</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+  <ion-card class="full-width" no-margin margin-bottom>
+    <ion-card-content no-padding>
+
+      <ion-item>
+        <ion-label class="text-1x bold">Select Category</ion-label>
+        <ion-select [(ngModel)]="category" (ionChange)="getCategory(category)">
+          <ion-option *ngFor="let category of categories" [value]="category">{{ category.name }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+  <div class="items-view" *ngIf="show">
+  <div class="single-item" *ngFor="let product of prod" >
+    <div>
+      <div class="itemHolder"  (click)="details(product.id)">
+        <div class="img-holder">
+          <img src="{{product.thumb}}">
+        </div>
+      </div>
+      <div class="itemText">
+        <div class="itemPrice">{{product.price}}  $</div>
+        <div class="itemName">{{product.name}}</div>
+
+      </div>
+      <div class="controls">
+        <div class="add-wish" >
+        <ion-icon (click)="details(product)" ios="md-cart" md="md-cart"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Basket</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<div *ngIf="show">
+	<ion-card-content class="balance">
+<h3> Your Budget    </h3>&ensp; <h2><strong>{{balance}} $</strong></h2>
+</ion-card-content>
+<ion-list>
+		<ion-item  *ngFor = " let product of prods ">
+			<div class="myImg">
+			  <img src="{{product.thumb}}">
+
+			</div>
+			<div class="name">
+			 <h2> {{product.name}}	</h2>  
+			 </div>
+			 <div class="strong">
+			 <strong>{{product.price}} $</strong>
+			 </div>
+		</ion-item>
+</ion-list>
+</div>
+
+</ion-content>
